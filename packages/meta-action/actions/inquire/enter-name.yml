@@ -1,0 +1,9 @@
+id: enter-name
+type: inquire
+payload:
+  type: input
+  message: Please select the gender
+  default: ""
+  name: name
+callback:
+  expression: answer => answer.name && player.name = answer.name

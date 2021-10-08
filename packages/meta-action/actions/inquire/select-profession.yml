@@ -1,0 +1,15 @@
+id: select-profession
+type: inquire
+payload:
+  type: list
+  message: Please select the profession
+  default: ""
+  name: profession
+  choices:
+    - warrior
+    - mage
+    - priest
+    - archer
+    - thief
+callback:
+  expression: answer => answer.profession && player.profession = answer.profession

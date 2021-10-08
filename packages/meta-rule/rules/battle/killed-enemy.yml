@@ -1,0 +1,19 @@
+name: Killed Enemy
+priority: 10
+conditions:
+  - type: TRIGGER
+    checkBy: compare
+    expression: enemies.some(enemy => enemy.hp <= 0)
+    success:
+      - type: update
+        payload:
+          expression: player.exp += enemies.filter(enemy => enemey.hp <= 0).reduce((exp, enemy) => exp + enemy.exp, 0)
+      - type: update
+        payload:
+          expression: battle.money += enemies.filter(enemy => enemey.hp <= 0).reduce((money, enemy) => money + enemy.money, 0)
+      - type: update
+        payload:
+          expression: battle.items += enemies.filter(enemy => enemey.hp <= 0).reduce((items, enemy) => items.conact(enemy.items), [])
+      - type: update
+        payload:
+          expression: enemies = enemies.filter(enemy.hp > 0)
