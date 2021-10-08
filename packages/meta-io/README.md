@@ -1,9 +1,7 @@
-# meta-sandbox
+# meta-io
 
 ## Concept
 
-### Rule
+### Reader
 
-### Condition
-
-### Action
+### Writer

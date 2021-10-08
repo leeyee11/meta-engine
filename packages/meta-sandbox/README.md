@@ -2,8 +2,4 @@
 
 ## Concept
 
-### Rule
-
-### Condition
-
-### Action
+### Executor

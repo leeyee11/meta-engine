@@ -2,6 +2,4 @@
 
 ## Concept
 
-### Flow
-
-### Condition
+### Flow DFA

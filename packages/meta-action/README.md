@@ -1,9 +1,7 @@
-# meta-rule
+# meta-action
 
 ## Concept
 
-### Rule
-
-### Condition
-
-### Action
+### Battle
+### Inquire
+### Admin
