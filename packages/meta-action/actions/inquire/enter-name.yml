@@ -6,4 +6,4 @@ payload:
   default: ""
   name: name
 callback:
-  expression: answer => answer.name && player.name = answer.name
+  expression: answer => answer.name && (player.name = answer.name)

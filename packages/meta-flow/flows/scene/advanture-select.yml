@@ -1,0 +1,13 @@
+id: advanture-select
+entry: select-map
+nodes:
+  - id: select-map
+    type: inquire-action
+    branches:
+      - condition: game.scene !== "advanture-select"
+        next: exit
+  - id: exit
+    type: exit
+
+
+      

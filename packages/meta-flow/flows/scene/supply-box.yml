@@ -1,0 +1,5 @@
+id: supply-box
+entry: exit
+nodes:
+  - id: exit
+    type: exit

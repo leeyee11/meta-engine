@@ -1,0 +1,14 @@
+id: select-map
+type: inquire
+payload:
+  type: list
+  message: Please select your advanture
+  default: ""
+  name: map
+  choices:
+    - forest
+    - mountain
+    - sea
+callback:
+  expression: answer => answer.map && (game.scene = 'advanture-' + answer.map)
+  

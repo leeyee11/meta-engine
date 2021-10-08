@@ -1,0 +1,5 @@
+id: bondire-place
+entry: exit
+nodes:
+  - id: exit
+    type: exit

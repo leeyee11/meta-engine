@@ -1,0 +1,5 @@
+id: game-over
+entry: exit
+nodes:
+  - id: exit
+    type: exit

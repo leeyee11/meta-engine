@@ -3,19 +3,16 @@ entry: enter-name
 nodes:
   - id: enter-name
     type: inquire-action
-    action: enter-name
     branches:
       - condition: player.name !== ""
         next: select-gender
   - id: select-gender
     type: inquire-action
-    action: select-gender
     branches:
       - condition: player.gender !== ""
         next: select-profession
   - id: select-profession
     type: inquire-action
-    action: select-profession
     branches:
       - condition: player.profession !== ""
         next: exit

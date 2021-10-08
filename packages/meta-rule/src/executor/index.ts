@@ -7,7 +7,7 @@ export const execute = (context: Context, expression: string) => {
 
 export const judge = (context: Context, expression: string) => {
   const clonedContext = cloneDeep(context);
-  const result = sandbox.execute(clonedContext, expression);
+  const result = sandbox.test(clonedContext, expression);
   if (typeof result === 'boolean') {
     return result;
   }

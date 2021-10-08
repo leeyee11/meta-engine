@@ -1,0 +1,5 @@
+id: player-status
+entry: exit
+nodes:
+  - id: exit
+    type: exit

@@ -1,0 +1,5 @@
+id: advanture-mountain
+entry: exit
+nodes:
+  - id: exit
+    type: exit

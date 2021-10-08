@@ -1,35 +1,36 @@
 import {Context} from '../typings/context';
-import {FlowBase, FlowNodeBase} from '../typings/flow';
+import {FlowBase, FlowNode, MetaDFA} from '../typings/flow';
 import io from '@meta-engine/io';
 import executor from '@meta-engine/sandbox';
 import path from 'path';
 
-const defaultFlowDir = __dirname + '../../flows';
+const defaultFlowDir = __dirname + './../../flows';
 const controlFlowDir = defaultFlowDir + '/control';
 const sceneFlowDir = defaultFlowDir + '/scene';
 
 const entryFlow = io.readSync(
-    path.resolve(`${controlFlowDir}/talk-on-paper.yml}`),
+    path.resolve(`${controlFlowDir}/talk-on-paper.yml`),
 ) as FlowBase;
 
 const getGraphFromFlow = (flow: FlowBase) => {
-  const {nodes} = flow;
-  const graph: Record<string, FlowNodeBase> = {};
-  for (const node of nodes) {
-    const scenePath = path.resolve(`${sceneFlowDir}/${node.id}.yml`);
-    const detailNode = io.readSync(scenePath);
-    graph[node.id] = node.type === 'scene' ?
-      {
-        ...node,
-        ...detailNode,
-      } :
-      node;
+  const {nodes: sceneNodes} = flow;
+  const graph: Record<string, FlowNode> = {};
+  for (const sceneNode of sceneNodes) {
+    const scenePath = path.resolve(`${sceneFlowDir}/${sceneNode.id}.yml`);
+    const detailNode = io.readSync(scenePath) as FlowNode;
+    graph[sceneNode.id] = {
+      ...sceneNode,
+      ...detailNode,
+    };
+    const {nodes: actionNodes} = detailNode;
+    for (const actionNode of actionNodes) {
+      graph[actionNode.id] = actionNode;
+    }
   }
   return graph;
 };
 
-const dfa = (flow: FlowBase) => {
-  let current = flow.entry;
+const dfa = (flow: FlowBase): MetaDFA => {
   const context: Context = {
     game: {},
     player: {},
@@ -37,24 +38,46 @@ const dfa = (flow: FlowBase) => {
     enemies: {},
   };
   const graph = getGraphFromFlow(flow);
+  let scene = flow.entry;
+  let action = graph[scene].entry;
+
   return {
     getContext: () => {
       return context;
     },
-    getCurrentScene: () => {
-      return graph[current];
+    getState: () => {
+      return {
+        action,
+        scene,
+      };
+    },
+    getNode: (key: string) => {
+      return graph[key];
     },
     next: () => {
-      const {branches=[]} = graph[current];
-      const success = branches.find((branch) => {
-        return executor.test(context, branch.condition);
-      });
-      if (success) {
-        current = success.next;
+      if (action) {
+        const {branches=[]} = graph[action];
+        const success = branches.find((branch) =>
+          executor.test(context, branch.condition),
+        );
+        if (success) {
+          action = success.next;
+        }
+      } else if (scene) {
+        const {branches=[]} = graph[scene];
+        const success = branches.find((branch) =>
+          executor.test(context, branch.condition),
+        );
+        if (success) {
+          scene = success.next;
+          action = graph[scene].entry;
+        }
       }
+      throw new Error('Out of graph');
     },
   };
 };
 
+const instance: MetaDFA = dfa(entryFlow);
 
-export default dfa(entryFlow);
+export default instance;

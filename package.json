@@ -8,6 +8,7 @@
   "license": "MIT",
   "dependencies": {
     "@meta-engine/action": "file:./packages/meta-action",
+    "@meta-engine/adapter": "file:./packages/meta-adapter",
     "@meta-engine/flow": "file:./packages/meta-flow",
     "@meta-engine/io": "file:./packages/meta-io",
     "@meta-engine/rule": "file:./packages/meta-rule",

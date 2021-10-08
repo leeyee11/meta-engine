@@ -26,22 +26,22 @@ nodes:
   - id: advanture-select
     type: scene
     branches:
-      - condition: game.scene === "advantrure-forest"
-        next: advantrure-forest
-      - condition: game.scene === "advantrure-mountain"
-        next: advantrure-mountain
-      - condition: game.scene === "advantrure-sea"
-        next: advantrure-sea
+      - condition: game.scene === "advanture-forest"
+        next: advanture-forest
+      - condition: game.scene === "advanture-mountain"
+        next: advanture-mountain
+      - condition: game.scene === "advanture-sea"
+        next: advanture-sea
       - next: bonfire-place
-  - id: advantrure-forest
+  - id: advanture-forest
     type: scene
     branches:
       - next: bonfire-place
-  - id: advantrure-mountain
+  - id: advanture-mountain
     type: scene
     branches:
       - next: bonfire-place
-  - id: advantrure-sea
+  - id: advanture-sea
     type: scene
     branches:
       - next: bonfire-place

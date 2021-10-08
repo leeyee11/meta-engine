@@ -1,0 +1,8 @@
+id: advanture-forest
+entry: exit
+nodes:
+  - id: exit
+    type: exit
+
+
+      
