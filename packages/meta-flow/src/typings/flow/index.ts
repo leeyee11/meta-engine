@@ -17,9 +17,16 @@ export interface FlowNode extends FlowBase {
   }[]
 }
 
+export interface MetaDFAState { 
+  scene: string, 
+  action: string
+}
+
 export interface MetaDFA {
   getContext: () => Context,
   getNode: (key: string) => FlowNode,
-  getState: () => { scene: string, action: string },
+  getState: () => MetaDFAState,
   next: () => void,
+  setContext: (nextContext: Context) => void,
+  setState: (nextState: MetaDFAState) => void
 }

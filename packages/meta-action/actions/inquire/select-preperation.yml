@@ -1,0 +1,13 @@
+id: select-preperation
+type: inquire
+payload:
+  type: list
+  message: What do you want to do?
+  default: ""
+  name: scene
+  choices:
+    - check supply box
+    - check status
+    - select advanture
+callback:
+  expression: answer => answer.scene && (game.scene = answer.scene)

@@ -24,5 +24,3 @@ describe('Executor', () => {
     expect(context.player.hp).toBe(200);
   });
 });
-
-console.log();

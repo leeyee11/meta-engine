@@ -1,5 +1,9 @@
 id: bondire-place
-entry: exit
+entry: select-preperation
 nodes:
+  - id: select-preperation
+    type: inquire-action
+    branches:
+      - next: exit
   - id: exit
     type: exit

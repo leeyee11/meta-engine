@@ -14,18 +14,19 @@ export const start = async () => {
   const dfa = flow.dfa;
   while (dfa.getState().action) {
     const actionNode = dfa.getNode(dfa.getState().action);
-    if (CliActionTypes.includes(actionNode.type)) {
-      await adapter.cli(
+    if (CliActionTypes.includes(actionNode.type)){
+      const nextContext = await adapter.cli(
           dfa.getContext(),
           loadAction(actionNode.type, actionNode.id),
       );
+      dfa.setContext(nextContext);
     } else if (SysActionTypes.includes(actionNode.type)) {
       if (actionNode.type === 'exit') {
-        dfa.getState().action = '';
+        dfa.setState({...dfa.getState(), action: ''});
       }
     }
+    dfa.next();
   }
-  dfa.next();
 };
 
 

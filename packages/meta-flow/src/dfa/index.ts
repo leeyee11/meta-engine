@@ -1,5 +1,5 @@
 import {Context} from '../typings/context';
-import {FlowBase, FlowNode, MetaDFA} from '../typings/flow';
+import {FlowBase, FlowNode, MetaDFA, MetaDFAState} from '../typings/flow';
 import io from '@meta-engine/io';
 import executor from '@meta-engine/sandbox';
 import path from 'path';
@@ -31,13 +31,13 @@ const getGraphFromFlow = (flow: FlowBase) => {
 };
 
 const dfa = (flow: FlowBase): MetaDFA => {
-  const context: Context = {
+  const graph = getGraphFromFlow(flow);
+  let context: Context = {
     game: {},
     player: {},
     battle: {},
     enemies: {},
   };
-  const graph = getGraphFromFlow(flow);
   let scene = flow.entry;
   let action = graph[scene].entry;
 
@@ -54,11 +54,18 @@ const dfa = (flow: FlowBase): MetaDFA => {
     getNode: (key: string) => {
       return graph[key];
     },
+    setContext: (nextContext: Context) => {
+      context = nextContext;
+    },
+    setState: (nextState: MetaDFAState) => {
+      scene = nextState.scene;
+      action = nextState.action;
+    },
     next: () => {
       if (action) {
         const {branches=[]} = graph[action];
         const success = branches.find((branch) =>
-          executor.test(context, branch.condition),
+          !branch.condition || executor.test(context, branch.condition),
         );
         if (success) {
           action = success.next;
@@ -66,14 +73,16 @@ const dfa = (flow: FlowBase): MetaDFA => {
       } else if (scene) {
         const {branches=[]} = graph[scene];
         const success = branches.find((branch) =>
-          executor.test(context, branch.condition),
+          !branch.condition || executor.test(context, branch.condition),
         );
+
         if (success) {
           scene = success.next;
           action = graph[scene].entry;
         }
+      } else {
+        throw new Error('Out of graph');
       }
-      throw new Error('Out of graph');
     },
   };
 };
