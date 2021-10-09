@@ -1,10 +1,16 @@
 id: wake-up
 type: output
 payload:
-  - "\"Hey, wake up, wake up...\""
-  - "\"Can you hear me?\""
-  - "\"Ok, seems you have wake up. Listen, we have only 30 seconds.\""
-  - "\"I known you have lost all the memory, but I have no time to tell you all the things.\""
-  - "\"Your name is ${player.name}. You are a ${player.profession}.\""
-  - "\"Your weapon and equipment are in the supply box near the bonfire. Take them before you leave.\""
-  - "\"I have to go. I will wait for you on my castle. Take care.\""
+  show: line
+  lines:
+    - "\"Hey, wake up, wake up...\""
+    - "\"Can you hear me?\""
+    - "\"Ok, we have only 30 seconds.\""
+    - "\"I know that you have lost all the memory, but I have no time to explain the reason.\""
+    - "\"Listen, your name is ${player.name}. You are a ${player.profession}.\""
+    - "\"Weapons are in the supply box near the bonfire. Take one of them before you leave.\""
+    - "\"I have to go. I will wait for you in the future. Take care and farewell\""
+    - "The stranger goes away..."
+    - "Your body hurts, you have no strength to stand up."
+    - "You are near to a bonfire, which makes you feel a little warm."
+    - "There is a box on a big rock, it should be the supply box that mentioned by the stranger."

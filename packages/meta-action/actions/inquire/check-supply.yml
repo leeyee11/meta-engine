@@ -1,0 +1,14 @@
+id: check-supply
+type: inquire
+payload:
+  type: list
+  message: Do you want to view/take supply?
+  default: "view"
+  name: supplyAction
+  choices:
+    - view
+    - take
+    - exit
+callback:
+  expression: ({answer, game}) => answer.supplyAction && (player.supplyAction = answer.supplyAction)
+  

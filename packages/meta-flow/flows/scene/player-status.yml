@@ -1,5 +1,9 @@
 id: player-status
-entry: exit
+entry: check-status
 nodes:
+  - id: check-status
+    type: output-action
+    branches:
+      - next: exit
   - id: exit
     type: exit

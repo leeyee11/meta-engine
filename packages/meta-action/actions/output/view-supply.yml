@@ -1,0 +1,14 @@
+id: view-supply
+type: output
+payload:
+  show: all
+  lines:
+    - "-----------------"
+    - "| CURR\t| ${player.weapon}\t|"
+    - "-----------------"
+    - "| BOX\t| sword\t|"
+    - "| \t| stick\t|"
+    - "| \t| book\t|"
+    - "| \t| bow\t|"
+    - "| \t| knife\t|"
+    - "-----------------"

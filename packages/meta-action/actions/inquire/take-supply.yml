@@ -1,0 +1,16 @@
+id: take-supply
+type: inquire
+payload:
+  type: list
+  message: What do you want to take?
+  default: "view"
+  name: weapon
+  choices:
+    - sword
+    - stick
+    - book
+    - bow
+    - knife
+callback:
+  expression: ({answer, game}) => answer.weapon && (player.weapon = answer.weapon)
+  

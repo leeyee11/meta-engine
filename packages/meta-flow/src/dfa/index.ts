@@ -1,8 +1,10 @@
 import {Context} from '../typings/context';
 import {FlowBase, FlowNode, MetaDFA, MetaDFAState} from '../typings/flow';
+import initialContext from './initialContext';
 import io from '@meta-engine/io';
 import executor from '@meta-engine/sandbox';
 import path from 'path';
+import _ from 'lodash';
 
 const defaultFlowDir = __dirname + './../../flows';
 const controlFlowDir = defaultFlowDir + '/control';
@@ -32,12 +34,7 @@ const getGraphFromFlow = (flow: FlowBase) => {
 
 const dfa = (flow: FlowBase): MetaDFA => {
   const graph = getGraphFromFlow(flow);
-  let context: Context = {
-    game: {},
-    player: {},
-    battle: {},
-    enemies: {},
-  };
+  let context: Context = _.cloneDeep(initialContext);
   let scene = flow.entry;
   let action = graph[scene].entry;
 
