@@ -4,7 +4,7 @@ import {load as loadAction} from '@meta-engine/action';
 
 const CliActionTypes = [
   'inquire-action',
-  'print-action',
+  'output-action',
 ];
 const SysActionTypes = [
   'exit',
@@ -24,6 +24,8 @@ export const start = async () => {
       if (actionNode.type === 'exit') {
         dfa.setState({...dfa.getState(), action: ''});
       }
+    } else {
+      console.log('unknown action type:', actionNode.type);
     }
     dfa.next();
   }

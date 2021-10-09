@@ -10,4 +10,4 @@ payload:
     - check status
     - select advanture
 callback:
-  expression: answer => answer.scene && (game.scene = answer.scene)
+  expression: ({answer, game}) => answer.scene && (game.scene = answer.scene)

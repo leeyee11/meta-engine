@@ -1,13 +1,14 @@
 import {NodeVM} from 'vm2';
 import {Context} from '../typings/context';
 
-export const execute = (context: Context, expression: string) => {
+export const invoke = (context: Context, expression: string) => {
   const vm = new NodeVM({sandbox: context});
   try {
     const func = vm.run(`
       module.exports = () => {
-        (${expression})(answer); 
-        return {answer, game, player, battle, enemies};
+        const context = {answer, game, player, battle, enemies};
+        (${expression})(context); 
+        return context;
       }
     `);
     const result = func();
@@ -17,7 +18,7 @@ export const execute = (context: Context, expression: string) => {
   }
 };
 
-export const test = (context: Context, expression: string) => {
+export const run = (context: Context, expression: string) => {
   const vm = new NodeVM({sandbox: context});
   try {
     const module = `module.exports = ${expression}`;

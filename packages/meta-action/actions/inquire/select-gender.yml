@@ -10,5 +10,5 @@ payload:
     - female
     - middle
 callback:
-  expression: answer => answer.gender && (player.gender = answer.gender)
+  expression: ({answer, player}) => answer.gender && (player.gender = answer.gender)
   

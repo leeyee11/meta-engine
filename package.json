@@ -6,6 +6,10 @@
   },
   "author": "leeyee11",
   "license": "MIT",
+  "scripts": {
+    "build:all": "lerna exec -- npm run build",
+    "start": "node ./packages/meta-director/dist/index.js"
+  },
   "dependencies": {
     "@meta-engine/action": "file:./packages/meta-action",
     "@meta-engine/adapter": "file:./packages/meta-adapter",

@@ -1,0 +1,9 @@
+id: background-intro
+entry: wake-up
+nodes:
+  - id: wake-up
+    type: output-action
+    branches:
+      - next: exit
+  - id: exit
+    type: exit

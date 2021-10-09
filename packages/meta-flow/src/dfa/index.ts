@@ -65,7 +65,7 @@ const dfa = (flow: FlowBase): MetaDFA => {
       if (action) {
         const {branches=[]} = graph[action];
         const success = branches.find((branch) =>
-          !branch.condition || executor.test(context, branch.condition),
+          !branch.condition || executor.run(context, branch.condition),
         );
         if (success) {
           action = success.next;
@@ -73,7 +73,7 @@ const dfa = (flow: FlowBase): MetaDFA => {
       } else if (scene) {
         const {branches=[]} = graph[scene];
         const success = branches.find((branch) =>
-          !branch.condition || executor.test(context, branch.condition),
+          !branch.condition || executor.run(context, branch.condition),
         );
 
         if (success) {

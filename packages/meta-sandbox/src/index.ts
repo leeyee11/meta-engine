@@ -1,8 +1,8 @@
-import {execute, test} from './executor';
+import {invoke, run} from './executor';
 import {Context} from './typings/context';
 export default {
-  execute,
-  test,
+  invoke,
+  run,
 };
 
 export type {

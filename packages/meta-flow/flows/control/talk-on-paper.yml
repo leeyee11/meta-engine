@@ -5,6 +5,10 @@ nodes:
   - id: character-create
     type: scene
     branches:
+      - next: background-intro
+  - id: background-intro
+    type: scene
+    branches:
       - next: bonfire-place
   - id: bonfire-place
     type: scene
