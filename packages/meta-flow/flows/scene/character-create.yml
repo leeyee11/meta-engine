@@ -14,7 +14,7 @@ nodes:
   - id: select-profession
     type: inquire-action
     branches:
-      - condition: "!!player.profession"
+      - condition: "!!player.prof"
         next: exit
   - id: exit
     type: exit

@@ -34,7 +34,7 @@ const getGraphFromFlow = (flow: FlowBase) => {
 
 const dfa = (flow: FlowBase): MetaDFA => {
   const graph = getGraphFromFlow(flow);
-  let context: Context = _.cloneDeep(initialContext);
+  let context: Context = initialContext;
   let scene = flow.entry;
   let action = graph[scene].entry;
 

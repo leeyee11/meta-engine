@@ -6,9 +6,8 @@ payload:
   default: ""
   name: gender
   choices:
-    - male
-    - female
-    - middle
+    - ♂
+    - ♀
 callback:
   expression: ({answer, player}) => answer.gender && (player.gender = answer.gender)
   

@@ -42,12 +42,16 @@ export const playSubtitle = async (
       : chalk.white
     const chalkHint = chalk.green;
     let acc = '';
-    const chars = text.split('');
-    for (let char of chars) {
-      acc += char;
-      console.log(chalkWrite(acc));
-      await sleep(interval);
-      clearLastLine();
+    if(interval === 0) {
+      acc = text;
+    } else {
+      const chars = text.split('');
+      for (let char of chars) {
+        acc += char;
+        console.log(chalkWrite(acc));
+        await sleep(interval);
+        clearLastLine();
+      }
     }
     console.log(chalkWrite(acc));
     console.log(chalkHint(hint));

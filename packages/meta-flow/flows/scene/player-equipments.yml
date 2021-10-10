@@ -1,0 +1,22 @@
+id: player-equipments
+entry: check-equipments
+nodes:
+  - id: check-equipments
+    type: inquire-action
+    branches:
+      - condition: player.equipmentsAction === "manage"
+        next: manage-equipments
+      - condition: player.equipmentsAction === "view"
+        next: view-equipments
+      - condition: player.equipmentsAction === "exit"
+        next: exit
+  - id: manage-equipments
+    type: inquire-action
+    branches:
+      - next: check-equipments
+  - id: view-equipments
+    type: output-action
+    branches:
+      - next: check-equipments
+  - id: exit
+    type: exit

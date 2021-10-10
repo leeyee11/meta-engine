@@ -1,5 +1,10 @@
 id: advanture-sea
-entry: exit
+entry: work-in-progress
+nodes:
+  - id: work-in-progress
+    type: output-action
+    branches:
+      - next: exit
 nodes:
   - id: exit
     type: exit

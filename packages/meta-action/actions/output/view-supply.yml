@@ -2,13 +2,5 @@ id: view-supply
 type: output
 payload:
   show: all
-  lines:
-    - "-----------------"
-    - "| CURR\t| ${player.weapon}\t|"
-    - "-----------------"
-    - "| BOX\t| sword\t|"
-    - "| \t| stick\t|"
-    - "| \t| book\t|"
-    - "| \t| bow\t|"
-    - "| \t| knife\t|"
-    - "-----------------"
+  dynamicLines: true
+  lines: "['-------------------------', '| #\t| Item name\t|', '-------------------------', ...storage.supplyBox.map((item, index) => `| ${index}\t| ${item.name}\t|`),'-------------------------']"

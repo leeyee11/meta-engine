@@ -3,14 +3,10 @@ type: inquire
 payload:
   type: list
   message: What do you want to take?
-  default: "view"
-  name: weapon
-  choices:
-    - sword
-    - stick
-    - book
-    - bow
-    - knife
+  default: "nothing"
+  name: itemName
+  dynamicChoices: true
+  choices: "['nothing', ...storage.supplyBox.map(item => item.name)]"
 callback:
-  expression: ({answer, game}) => answer.weapon && (player.weapon = answer.weapon)
+  expression: ({answer, storage}) => answer.itemName !== 'nothing' && storage.player.push(...storage.supplyBox.splice(storage.supplyBox.findIndex((item) => item.name === answer.itemName),1))
   

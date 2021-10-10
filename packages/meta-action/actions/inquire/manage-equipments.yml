@@ -1,0 +1,12 @@
+id: manage-equipments
+type: inquire
+payload:
+  type: list
+  message: Which one do you want to use?
+  default: "${player.wpn}"
+  name: weapon
+  dynamicChoices: true
+  choices: "['empty hands', ...storage.player.filter(item => item.type === 'wpn')]"
+callback:
+  expression: ({answer, game}) => answer.weapon && (player.wpn = answer.weapon)
+  

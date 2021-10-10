@@ -1,0 +1,14 @@
+id: check-equipments
+type: inquire
+payload:
+  type: list
+  message: Do you want to view/manage equipments?
+  default: "view"
+  name: equipmentsAction
+  choices:
+    - view
+    - manage
+    - exit
+callback:
+  expression: ({answer, game}) => answer.equipmentsAction && (player.equipmentsAction = answer.equipmentsAction)
+  

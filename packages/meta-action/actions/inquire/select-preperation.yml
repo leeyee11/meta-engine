@@ -6,8 +6,9 @@ payload:
   default: ""
   name: scene
   choices:
+    - view status
     - check supply box
-    - check status
+    - check equipments
     - select advanture
 callback:
   expression: ({answer, game}) => answer.scene && (game.scene = answer.scene)
