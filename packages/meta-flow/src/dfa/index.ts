@@ -34,7 +34,7 @@ const getGraphFromFlow = (flow: FlowBase) => {
 
 const dfa = (flow: FlowBase): MetaDFA => {
   const graph = getGraphFromFlow(flow);
-  let context: Context = initialContext;
+  let context: Context = _.cloneDeep(initialContext);
   let scene = flow.entry;
   let action = graph[scene].entry;
 
@@ -59,6 +59,12 @@ const dfa = (flow: FlowBase): MetaDFA => {
       action = nextState.action;
     },
     next: () => {
+      if (context.player.hp <= 0 && scene !== 'game-over') {
+        scene = 'game-over';
+        action = 'you-died';
+        context = initialContext;
+        return;
+      }
       if (action) {
         const {branches=[]} = graph[action];
         const success = branches.find((branch) =>

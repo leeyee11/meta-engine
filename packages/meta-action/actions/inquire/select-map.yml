@@ -10,5 +10,5 @@ payload:
     - mountain
     - sea
 callback:
-  expression: ({answer, game}) => answer.map && (game.scene = 'advanture-' + answer.map)
+  expression: ({answer, game}) => answer.map && (game.scene = `${answer.map} advanture`)
   

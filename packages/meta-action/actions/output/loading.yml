@@ -1,0 +1,6 @@
+id: loading
+type: output
+payload:
+  show: line
+  lines:
+    - "loading: ████████████████████"

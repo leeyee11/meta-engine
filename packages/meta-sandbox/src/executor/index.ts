@@ -6,7 +6,7 @@ export const invoke = (context: Context, expression: string) => {
   try {
     const func = vm.run(`
       module.exports = () => {
-        const context = {answer, game, player, battle, enemies, storage};
+        const context = {answer, game, player, battle, enemies, storage, utils};
         (${expression})(context); 
         return context;
       }

@@ -1,0 +1,5 @@
+id: get-some-fishes
+type: update
+payload:
+  subtitle: "(You find some fishes in the river. +${game.tmp.cnt} fish)"
+  expression: "({game, storage, utils}) => (game.tmp = {}) && (game.tmp.cnt = utils.randomValue(2, 4)) && (storage.player.push(...Array(game.tmp.cnt).fill({type:'item', name:'fish'})))"

@@ -15,7 +15,11 @@ nodes:
     type: inquire-action
     branches:
       - condition: "!!player.prof"
-        next: exit
+        next: loading
+  - id: loading
+    type: output-action
+    branches:
+      - next: exit
   - id: exit
     type: exit
 

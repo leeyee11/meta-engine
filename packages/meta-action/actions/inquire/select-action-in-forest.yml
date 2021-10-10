@@ -1,0 +1,15 @@
+id: select-action-in-forest
+type: inquire
+payload:
+  type: list
+  message: "You find a river, there are a lot of cobbles and some fishes. You see some deers behind the trees and you heard some noices from unknown beasts."
+  default: "river"
+  name: action
+  choices:
+    - go to river
+    - close to deers
+    - stay here
+    - back to bonfire
+callback:
+  expression: ({answer, game}) => answer.action && (player.action = answer.action)
+  

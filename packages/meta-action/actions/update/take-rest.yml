@@ -1,0 +1,5 @@
+id: take-rest
+type: update
+payload:
+  subtitle: "(You took a rest. HP is recovered.)"
+  expression: "({player}) => player.hp = player.maxhp"

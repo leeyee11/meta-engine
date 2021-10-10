@@ -4,5 +4,5 @@ payload:
   show: all
   lines:
     - "-----------------"
-    - " It is WIP       "
+    - "| It is WIP     |"
     - "-----------------"

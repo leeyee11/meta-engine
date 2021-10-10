@@ -1,0 +1,9 @@
+id: take-a-rest
+entry: take-rest
+nodes:
+  - id: take-rest
+    type: update-action
+    branches:
+      - next: exit
+  - id: exit
+    type: exit

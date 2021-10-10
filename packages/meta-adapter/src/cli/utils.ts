@@ -25,6 +25,8 @@ const clearLastLine = () => {
   process.stdout.clearScreenDown()
 }
 const isCommunication = (text: string) => /^\".*?\"$/.test(text);
+const isNotification = (text: string) => /^\(.*?\)$/.test(text);
+
 
 interface PlaySubtitleOption {
   blocker?: (() => Promise<void>) | null,
@@ -37,9 +39,12 @@ export const playSubtitle = async (
 ) => {
   const {blocker = keypress, interval = 60, hint = 'Press any key to continue.'} = option || {};
   for (let text of textList) {
-    const chalkWrite = isCommunication(text)
+    const chalkWrite = 
+      isCommunication(text)
       ? chalk.blue
-      : chalk.white
+      : isNotification(text)
+        ? chalk.yellow
+        : chalk.white
     const chalkHint = chalk.green;
     let acc = '';
     if(interval === 0) {

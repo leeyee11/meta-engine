@@ -1,5 +1,12 @@
 import {profWeaponMasteryDict, Profession} from '../dict/profession';
-import {weaponQualityAttackDict, WeaponQuality, WeaponType} from '../dict/weapon';
+import {
+  weaponQualityAttackDict,
+  WeaponQuality,
+  WeaponType,
+  weaponQualityDropRateDict,
+  weaponTypeDropRateDict
+} from '../dict/weapon';
+import {random} from '../helper/generator';
 
 const EmptyHands = 'empty hands';
 
@@ -12,7 +19,8 @@ export default {
     lv: 1,              // level
     cash: 0,            // cash
     wpn: EmptyHands,    // weapon
-    prof: 'none',       // profession
+    prof: 'none',       // profession,
+    maxhp: 50,
     get atk() {
       if(this.wpn === EmptyHands) {
         return this.batk;
@@ -46,5 +54,18 @@ export default {
         name: 'humble knife'
       },
     ]
+  },
+  utils: {
+    randomValue: (start: number, end: number) => {
+      return (Math.random() * (end - start) + start) ^ 0;
+    },
+    weaponDropGenerator: () => {
+      const quality = random(weaponQualityDropRateDict);
+      const type = random(weaponTypeDropRateDict);
+      return {
+        type: 'wpn',
+        name: `${quality} ${type}`
+      }
+    }
   }
 }

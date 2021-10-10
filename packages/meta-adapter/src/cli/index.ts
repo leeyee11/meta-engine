@@ -23,16 +23,21 @@ export default (context: Context, action: ActionBase): Promise<Context> => {
           return sandbox.invoke(context, action.callback.expression);
         });
   } else if (action.type === 'output') {
-    const sentences = action.payload.dynamicLines
+    const subtitles = action.payload.dynamicLines
       ? sandbox.run(context, action.payload.lines)
       : (action.payload.lines as string[]).map(text => {
           return evaluate(context, text);
         });
     return action.payload.show === "line"
-      ? playSubtitle(sentences, {interval: 10})
+      ? playSubtitle(subtitles, {interval: 10})
         .then(() => context)
-      : playSubtitle(sentences, {interval: 0, blocker: null, hint: ''})
+      : playSubtitle(subtitles, {interval: 0, blocker: null, hint: ''})
         .then(() => context)
+  } else if (action.type === 'update') {
+    sandbox.invoke(context, action.payload.expression);
+    const subtitle = evaluate(context, action.payload.subtitle);
+    return playSubtitle([subtitle], {interval: 10})
+      .then(() => context)
   }
   return Promise.resolve(context)
 };
