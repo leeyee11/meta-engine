@@ -7,7 +7,7 @@
   "author": "leeyee11",
   "license": "MIT",
   "scripts": {
-    "build:all": "lerna exec -- npm run build",
+    "build:all": "lerna run build --include-dependencies --stream",
     "start": "node ./packages/meta-director/dist/index.js"
   },
   "dependencies": {
