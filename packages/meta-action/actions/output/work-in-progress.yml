@@ -1,0 +1,8 @@
+id: work-in-progress
+type: output
+payload:
+  show: all
+  lines:
+    - "-----------------"
+    - "| It is WIP     |"
+    - "-----------------"

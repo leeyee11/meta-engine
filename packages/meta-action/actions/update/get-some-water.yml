@@ -1,0 +1,5 @@
+id: get-some-water
+type: update
+payload:
+  subtitle: "(You get some water in the river. +${game.tmp.cnt} water)"
+  expression: "({game, storage, utils}) => (game.tmp = {}) && (game.tmp.cnt = utils.randomValue(1, 5)) && (storage.player.push(...Array(game.tmp.cnt).fill({type:'item', name:'water'})))"

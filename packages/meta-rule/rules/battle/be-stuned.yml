@@ -1,0 +1,17 @@
+name: Be Stuned
+priority: 10
+conditions:
+  - type: TRIGGER
+    checkBy: compare
+    expression: player.stun_posibility < Math.random()
+    success:
+      - type: update
+        payload:
+          expression: player.stun_posibility = 0
+      - type: update
+        payload:
+          expression: player.stun_round = 3
+    failure:
+      - type: update
+        payload:
+          expression: player.stun_posibility = 0

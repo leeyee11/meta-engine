@@ -1,0 +1,22 @@
+id: supply-box
+entry: check-supply
+nodes:
+  - id: check-supply
+    type: inquire-action
+    branches:
+      - condition: player.supplyAction === "take"
+        next: take-supply
+      - condition: player.supplyAction === "view"
+        next: view-supply
+      - condition: player.supplyAction === "exit"
+        next: exit
+  - id: take-supply
+    type: inquire-action
+    branches: 
+      - next: check-supply
+  - id: view-supply
+    type: output-action
+    branches: 
+      - next: check-supply  
+  - id: exit
+    type: exit

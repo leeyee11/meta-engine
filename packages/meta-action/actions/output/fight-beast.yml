@@ -1,0 +1,10 @@
+id: fight-beast
+type: output
+payload:
+  show: line
+  lines:
+    - "(The wolf jumped to you. There is nowhere to escape. You fell into a coma.)"
+    - "..........................................................................."
+    - "When you wake up, you find the stranger appears."
+    - "\"Don't die easily. There are a lot of dangers. Take care.\""
+    - He went away again.

@@ -1,0 +1,73 @@
+id: talk-on-paper
+type: control
+entry: welcome
+nodes:
+  - id: welcome
+    type: scene
+    branches:
+      - condition: game.scene === "create character"
+        next: character-create
+  - id: character-create
+    type: scene
+    branches:
+      - next: background-intro
+  - id: background-intro
+    type: scene
+    branches:
+      - next: bonfire-place
+  - id: bonfire-place
+    type: scene
+    branches:
+      - condition: game.scene === "view status"
+        next: player-status
+      - condition: game.scene === "take a rest"
+        next: take-a-rest
+      - condition: game.scene === "check supply box"
+        next: supply-box
+      - condition: game.scene === "check equipments"
+        next: player-equipments
+      - condition: game.scene === "select advanture"
+        next: advanture-select
+  - id: supply-box
+    type: scene
+    branches:
+      - next: bonfire-place
+  - id: player-status
+    type: scene
+    branches:
+      - next: bonfire-place
+  - id: take-a-rest
+    type: scene
+    branches:
+      - next: bonfire-place
+  - id: player-equipments
+    type: scene
+    branches:
+      - next: bonfire-place
+  - id: advanture-select
+    type: scene
+    branches:
+      - condition: game.scene === "forest advanture"
+        next: advanture-forest
+      - condition: game.scene === "mountain advanture"
+        next: advanture-mountain
+      - condition: game.scene === "sea advanture"
+        next: advanture-sea
+      - next: bonfire-place
+  - id: advanture-forest
+    type: scene
+    branches:
+      - next: bonfire-place
+  - id: advanture-mountain
+    type: scene
+    branches:
+      - next: bonfire-place
+  - id: advanture-sea
+    type: scene
+    branches:
+      - next: bonfire-place
+  - id: game-over
+    type: scene
+
+  
+

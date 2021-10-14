@@ -1,0 +1,13 @@
+id: view-status
+type: output
+payload:
+  show: all
+  lines:
+    - "-----------------"
+    - "| HP\t| ${player.hp}\t|"
+    - "| EXP\t| ${player.exp}\t|"
+    - "| LV\t| ${player.lv}\t|"
+    - "| ATK\t| ${player.atk}\t|"
+    - "| DEF\t| ${player.bdef}\t|"
+    - "| CASH\t| ${player.cash}\t|"
+    - "-----------------"

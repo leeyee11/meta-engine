@@ -1,0 +1,10 @@
+name: Be Killed
+priority: 20
+conditions:
+  - type: TRIGGER
+    checkBy: compare
+    expression: player.hp <= 0
+    success:
+      type: GOTO
+      payload:
+        scene: GAMEOVER

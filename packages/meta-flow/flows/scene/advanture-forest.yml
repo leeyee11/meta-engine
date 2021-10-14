@@ -1,0 +1,65 @@
+id: advanture-forest
+entry: arrive-forest
+nodes:
+  - id: arrive-forest
+    type: output-action
+    branches:
+      - next: select-action-in-forest
+  - id: select-action-in-forest
+    type: inquire-action
+    branches:
+      - condition: "player.action === 'go to river' && Math.random() > 0.98"
+        next: get-a-weapon
+      - condition: "player.action === 'go to river' && Math.random() > 0.8"
+        next: fall-into-river
+      - condition: "player.action === 'go to river' && Math.random() > 0.6"
+        next: get-some-fishes
+      - condition: "player.action === 'go to river' && Math.random() > 0.4"
+        next: get-some-water
+      - condition: "player.action === 'go to river'"
+        next: get-some-cobbles
+      - condition: "player.action === 'close to deers'"
+        next: deers-run-away
+      - condition: "player.action === 'stay here'"
+        next: fight-or-escape
+      - condition: "player.action === 'back to bonfire'"
+        next: exit
+  - id: get-a-weapon
+    type: update-action
+    branches:
+      - next: select-action-in-forest
+  - id: fall-into-river
+    type: update-action
+    branches:
+      - next: select-action-in-forest
+  - id: get-some-fishes
+    type: update-action
+    branches:
+      - next: select-action-in-forest
+  - id: get-some-water
+    type: update-action
+    branches:
+      - next: select-action-in-forest
+  - id: get-some-cobbles
+    type: update-action
+    branches:
+      - next: select-action-in-forest
+  - id: deers-run-away
+    type: output-action
+    branches:
+      - next: select-action-in-forest
+  - id: fight-or-escape
+    type: inquire-action
+    branches:
+      - confition: "player.action === 'fight' || (player.action === 'escape' && Math.random() < 0.4)"
+        next: fight-beast
+      - next: exit
+  - id: fight-beast
+    type: output-action
+    branches:
+      - next: exit
+  - id: exit
+    type: exit
+
+
+      

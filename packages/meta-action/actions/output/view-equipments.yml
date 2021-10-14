@@ -1,0 +1,6 @@
+id: view-equipments
+type: output
+payload:
+  show: all,
+  dynamicLines: true
+  lines: "['-------------------------',`| 👋\t| ${player.wpn}\t|`,'-------------------------', ...storage.player.map(item => `| ${item.type}\t| ${item.name}\t|`), '-------------------------']"

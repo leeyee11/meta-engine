@@ -1,0 +1,9 @@
+id: game-over
+entry: you-died
+nodes:
+  - id: you-died
+    type: output-action
+    branches:
+      - next: exit-process
+  - id: exit-process
+    type: exit-process

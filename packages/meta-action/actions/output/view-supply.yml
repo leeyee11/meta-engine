@@ -1,0 +1,6 @@
+id: view-supply
+type: output
+payload:
+  show: all
+  dynamicLines: true
+  lines: "['-------------------------', '| #\t| Item name\t|', '-------------------------', ...storage.supplyBox.map((item, index) => `| ${index}\t| ${item.name}\t|`),'-------------------------']"

@@ -1,0 +1,5 @@
+id: fall-into-river
+type: update
+payload:
+  expression: ({player, game, utils}) => (game.tmp = {}) && (game.tmp.demage = utils.randomValue(10, 30)) && (player.hp -= game.tmp.demage)
+  subtitle: "(You fell in to the river and get hurts. -${game.tmp.demage} HP.)"

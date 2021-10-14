@@ -1,0 +1,13 @@
+id: select-gender
+type: inquire
+payload:
+  type: list
+  message: Please select the gender
+  default: ""
+  name: gender
+  choices:
+    - ♂
+    - ♀
+callback:
+  expression: ({answer, player}) => answer.gender && (player.gender = answer.gender)
+  

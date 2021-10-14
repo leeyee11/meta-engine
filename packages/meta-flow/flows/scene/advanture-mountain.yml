@@ -1,0 +1,9 @@
+id: advanture-mountain
+entry: work-in-progress
+nodes:
+  - id: work-in-progress
+    type: output-action
+    branches:
+      - next: exit
+  - id: exit
+    type: exit

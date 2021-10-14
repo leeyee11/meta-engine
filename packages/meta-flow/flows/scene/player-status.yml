@@ -1,0 +1,9 @@
+id: player-status
+entry: view-status
+nodes:
+  - id: view-status
+    type: output-action
+    branches:
+      - next: exit
+  - id: exit
+    type: exit

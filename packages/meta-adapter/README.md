@@ -1,0 +1,4 @@
+# meta-adapter
+
+## Adapters
+* CLI

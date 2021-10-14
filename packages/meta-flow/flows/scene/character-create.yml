@@ -1,0 +1,26 @@
+id: character-create
+entry: enter-name
+nodes:
+  - id: enter-name
+    type: inquire-action
+    branches:
+      - condition: "!!player.name"
+        next: select-gender
+  - id: select-gender
+    type: inquire-action
+    branches:
+      - condition: "!!player.gender"
+        next: select-profession
+  - id: select-profession
+    type: inquire-action
+    branches:
+      - condition: "!!player.prof"
+        next: loading
+  - id: loading
+    type: output-action
+    branches:
+      - next: exit
+  - id: exit
+    type: exit
+
+      

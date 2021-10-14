@@ -1,0 +1,5 @@
+id: get-a-weapon
+type: update
+payload:
+  subtitle: "(You find a ${game.tmp.wpn.name} in the river.)"
+  expression: "({game, storage, utils}) => (game.tmp = {}) && (game.tmp.wpn = utils.weaponDropGenerator()) && (storage.player.push(game.tmp.wpn))"

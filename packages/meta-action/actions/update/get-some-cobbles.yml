@@ -1,0 +1,5 @@
+id: get-some-cobbles
+type: update
+payload:
+  subtitle: "(You find some cobbles in the river. +${game.tmp.cnt} cobble)"
+  expression: "({game, storage, utils}) => (game.tmp = {}) && (game.tmp.cnt = utils.randomValue(3, 5)) && (storage.player.push(...Array(game.tmp.cnt).fill({type:'item', name:'cabble'})))"

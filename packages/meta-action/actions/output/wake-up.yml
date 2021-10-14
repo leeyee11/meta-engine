@@ -1,0 +1,14 @@
+id: wake-up
+type: output
+payload:
+  show: line
+  lines:
+    - "\"Hey, wake up, wake up...\""
+    - "\"You should have lost all the memory, but I have no time to explain too much.\""
+    - "\"Listen, your name is ${player.name}. You are a ${player.prof}.\""
+    - "\"Weapons are in the supply box near the bonfire. Take one of them before you leave.\""
+    - "\"I have to go. We will meet in the future. Take care.\""
+    - "The stranger goes away..."
+    - "Your body hurts, you have no strength to stand up."
+    - "You are near to a bonfire, which makes you feel a little warm."
+    - "There is a box on a big rock, it should be the supply box that mentioned by the stranger."

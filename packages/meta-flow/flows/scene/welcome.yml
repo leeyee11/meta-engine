@@ -1,0 +1,20 @@
+id: welcome
+entry: display-banner
+nodes:
+  - id: display-banner
+    type: output-action
+    branches:
+      - next: select-record
+  - id: select-record
+    type: inquire-action
+    branches:
+      - condition: "!!game.scene"
+        next: loading
+  - id: loading
+    type: output-action
+    branches:
+      - next: exit
+  - id: exit
+    type: exit
+
+      

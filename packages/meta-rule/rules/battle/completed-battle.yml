@@ -1,0 +1,19 @@
+name: Completed Battle
+priority: 0
+conditions:
+  - type: TRIGGER
+    checkBy: compare
+    expression: enemies.length === 0
+    success:
+      - type: update
+        payload:
+          expression: player.money += battle.money
+      - type: update
+        payload:
+          expression: 'player.item_map = battle.items.reduce((item_map, item_id) => ({...item_map, [item_id]: item_map[item_id] ? item_map[item_id] + 1 : 1 }), player.item_map)'
+      - type: update
+        payload:
+          expression: 'battle = { money: 0, items: [] }'
+      - type: GOTO
+        payload:
+          scene: BATTLEOVER

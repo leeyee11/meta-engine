@@ -1,0 +1,21 @@
+{
+  "name": "root",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  },
+  "author": "leeyee11",
+  "license": "MIT",
+  "scripts": {
+    "build:all": "lerna exec -- npm run build",
+    "start": "node ./packages/meta-director/dist/index.js"
+  },
+  "dependencies": {
+    "@meta-engine/action": "file:./packages/meta-action",
+    "@meta-engine/adapter": "file:./packages/meta-adapter",
+    "@meta-engine/flow": "file:./packages/meta-flow",
+    "@meta-engine/io": "file:./packages/meta-io",
+    "@meta-engine/rule": "file:./packages/meta-rule",
+    "@meta-engine/sandbox": "file:./packages/meta-sandbox"
+  }
+}

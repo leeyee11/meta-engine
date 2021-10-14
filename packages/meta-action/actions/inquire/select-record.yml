@@ -1,0 +1,12 @@
+id: select-record
+type: inquire
+payload:
+  type: list
+  message: Select your record or create a new one.
+  default: ""
+  name: reocrd
+  choices:
+    - new record
+callback:
+  expression: ({answer, game}) => answer.reocrd === 'new record' && (game.scene = 'create character')
+  

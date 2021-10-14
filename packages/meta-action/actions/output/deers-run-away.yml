@@ -1,0 +1,6 @@
+id: deers-run-away
+type: output
+payload:
+  show: line
+  lines:
+    - "(You tried to move to the tree, but deers ran away.)"

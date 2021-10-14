@@ -1,0 +1,13 @@
+id: fight-or-escape
+type: inquire
+payload:
+  type: list
+  message: You heard a roar of beast, then a wolf jumped out. You want to fight or escape?
+  default: ""
+  name: action
+  choices:
+    - fight
+    - escape
+callback:
+  expression: ({answer, player}) => answer.action && (player.action = answer.action)
+  
