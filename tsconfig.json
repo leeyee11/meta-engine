@@ -9,12 +9,12 @@
     "strict": true,
     "skipLibCheck": true,
     "paths": {
-      "@meta-action": ["./packages/meta-action/dist"],
-      "@meta-adapter": ["./packages/meta-adapter/dist"],
-      "@meta-flow": ["./packages/meta-flow/dist"],
-      "@meta-io": ["./packages/meta-io/dist"],
-      "@meta-sandbox": ["./packages/meta-sandbox/dist"],
-      "@meta-rule": ["./packages/meta-rule/dist"]
+      "@meta-engine/action": ["./packages/meta-action/lib"],
+      "@meta-engine/adapter": ["./packages/meta-adapter/lib"],
+      "@meta-engine/flow": ["./packages/meta-flow/lib"],
+      "@meta-engine/io": ["./packages/meta-io/lib"],
+      "@meta-engine/sandbox": ["./packages/meta-sandbox/lib"],
+      "@meta-engine/rule": ["./packages/meta-rule/lib"]
     }
   }
 }

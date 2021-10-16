@@ -7,7 +7,15 @@
   "author": "leeyee11",
   "license": "MIT",
   "scripts": {
-    "build:all": "lerna run build --sort",
+    "build:all": "lerna run build --stream",
+    "build:inorder": "npm run build:sandbox && npm run build:io && npm run build:action && npm run build:rule && npm run build:flow && npm run build:adapter && npm run build:director",
+    "build:action": "lerna run build --scope meta-action",
+    "build:adapter": "lerna run build --scope meta-adapter",
+    "build:director": "lerna run build --scope meta-director",
+    "build:flow": "lerna run build --scope meta-flow",
+    "build:io": "lerna run build --scope meta-io",
+    "build:rule": "lerna run build --scope meta-rule",
+    "build:sandbox": "lerna run build --scope meta-sandbox",
     "start": "node ./packages/meta-director/dist/index.js"
   },
   "dependencies": {

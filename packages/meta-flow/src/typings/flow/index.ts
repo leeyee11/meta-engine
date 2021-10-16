@@ -1,4 +1,4 @@
-import {Context} from '@meta-sandbox';
+import {Context} from '@meta-engine/sandbox';
 
 export interface FlowBase {
   id: string,
@@ -17,8 +17,8 @@ export interface FlowNode extends FlowBase {
   }[]
 }
 
-export interface MetaDFAState { 
-  scene: string, 
+export interface MetaDFAState {
+  scene: string,
   action: string
 }
 
