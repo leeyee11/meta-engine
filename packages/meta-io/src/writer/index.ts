@@ -1,11 +1,8 @@
 import {dump as yamlDump} from 'js-yaml';
 import {PathLike} from 'graceful-fs';
 import {writeFile, writeFileSync} from 'fs-extra';
-import {FlowBase} from '@meta-engine/flow';
-import {ActionBase} from '@meta-engine/action';
-import {RuleBase} from '@meta-engine/rule';
+import {Serializable} from 'ts-serializable';
 
-type Serializable = ActionBase | FlowBase | RuleBase
 
 export const write = (file: PathLike, data: Serializable): void => {
   const text = dump(data);

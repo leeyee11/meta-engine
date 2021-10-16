@@ -2,7 +2,7 @@
   "name": "meta-io",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "build": "tsc -d & tsc -b",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,6 +13,7 @@
     "fs-extra": "^10.0.0",
     "js-yaml": "^4.1.0",
     "lodash": "^4.17.21",
+    "ts-serializable": "^2.0.40",
     "vm2": "^3.9.3"
   },
   "devDependencies": {

@@ -36,5 +36,9 @@ jobs:
           architecture: x64
           # Set this option if you want the action to check for the latest available version that satisfies the version spec
           check-latest: true
+      - name: Install lerna globally
+        run: npm install lerna -g
+      - name: Install packages
+        run: npm i
       - name: Build Typescript
         run: npm run build:all

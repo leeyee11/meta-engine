@@ -16,8 +16,10 @@ export const start = async () => {
   const dfa = flow.dfa;
   while (dfa.getState().action) {
     const actionNode = dfa.getNode(dfa.getState().action);
-    if(!actionNode) { throw new Error('Cannot find action node.') };
-    if (CliActionTypes.includes(actionNode.type)){
+    if (!actionNode) {
+      throw new Error('Cannot find action node.');
+    };
+    if (CliActionTypes.includes(actionNode.type)) {
       const nextContext = await adapter.cli(
           dfa.getContext(),
           loadAction(actionNode.type, actionNode.id),
