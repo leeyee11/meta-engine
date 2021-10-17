@@ -6,13 +6,17 @@ import executor from '@meta-engine/sandbox';
 import path from 'path';
 import _ from 'lodash';
 
-const defaultFlowDir = __dirname + './../../flows';
-const controlFlowDir = defaultFlowDir + '/control';
-const sceneFlowDir = defaultFlowDir + '/scene';
+const entry = path.resolve(__dirname,
+    `../../../../${process.env.GAME_ROOT!}/flows/control/main.yml`,
+);
 
-const entryFlow = io.readSync(
-    path.resolve(`${controlFlowDir}/talk-on-paper.yml`),
-) as FlowBase;
+const sceneFlowDir = path.resolve(__dirname,
+    `../../../../${process.env.GAME_ROOT!}/flows/scene`,
+);
+
+
+const entryFlow = io.readSync(entry) as FlowBase;
+
 
 const getGraphFromFlow = (flow: FlowBase) => {
   const {nodes: sceneNodes} = flow;

@@ -7,10 +7,9 @@ const initialContext_1 = __importDefault(require("./initialContext"));
 const io_1 = __importDefault(require("@meta-engine/io"));
 const sandbox_1 = __importDefault(require("@meta-engine/sandbox"));
 const path_1 = __importDefault(require("path"));
-const defaultFlowDir = __dirname + './../../flows';
-const controlFlowDir = defaultFlowDir + '/control';
-const sceneFlowDir = defaultFlowDir + '/scene';
-const entryFlow = io_1.default.readSync(path_1.default.resolve(`${controlFlowDir}/talk-on-paper.yml`));
+const entry = path_1.default.resolve(__dirname, `../../../../${process.env.GAME_ROOT}/flows/control/main.yml`);
+const sceneFlowDir = path_1.default.resolve(__dirname, `../../../../${process.env.GAME_ROOT}/flows/scene`);
+const entryFlow = io_1.default.readSync(entry);
 const getGraphFromFlow = (flow) => {
     const { nodes: sceneNodes } = flow;
     const graph = {};

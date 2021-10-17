@@ -1,6 +1,7 @@
 import flow from '@meta-engine/flow';
 import adapter from '@meta-engine/adapter';
 import {load as loadAction} from '@meta-engine/action';
+import { PathLike } from 'fs';
 
 const CliActionTypes = [
   'inquire-action',
