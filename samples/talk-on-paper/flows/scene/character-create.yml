@@ -1,4 +1,5 @@
 id: character-create
+type: scene
 entry: enter-name
 nodes:
   - id: enter-name

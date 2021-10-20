@@ -1,4 +1,5 @@
 id: take-a-rest
+type: scene
 entry: take-rest
 nodes:
   - id: take-rest

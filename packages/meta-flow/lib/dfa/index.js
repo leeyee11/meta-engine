@@ -7,8 +7,8 @@ const initialContext_1 = __importDefault(require("./initialContext"));
 const io_1 = __importDefault(require("@meta-engine/io"));
 const sandbox_1 = __importDefault(require("@meta-engine/sandbox"));
 const path_1 = __importDefault(require("path"));
-const entry = path_1.default.resolve(__dirname, `../../../../${process.env.GAME_ROOT}/flows/control/main.yml`);
-const sceneFlowDir = path_1.default.resolve(__dirname, `../../../../${process.env.GAME_ROOT}/flows/scene`);
+const entry = path_1.default.resolve(__dirname, `${process.cwd()}/${process.env.GAME_ROOT}/${process.env.GAME_ID}/flows/control/main.yml`);
+const sceneFlowDir = path_1.default.resolve(__dirname, `${process.cwd()}/${process.env.GAME_ROOT}/${process.env.GAME_ID}/flows/scene`);
 const entryFlow = io_1.default.readSync(entry);
 const getGraphFromFlow = (flow) => {
     const { nodes: sceneNodes } = flow;

@@ -1,5 +1,5 @@
 import {execute} from './executor';
-import {RuleBase} from './typings/rule';
+import {RuleBase, RuleType} from './typings/rule';
 
 export default {
   execute,
@@ -7,4 +7,5 @@ export default {
 
 export type {
   RuleBase,
+  RuleType,
 };

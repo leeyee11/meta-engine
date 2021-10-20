@@ -1,4 +1,5 @@
 id: game-over
+type: scene
 entry: you-died
 nodes:
   - id: you-died

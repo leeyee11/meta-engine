@@ -1,4 +1,5 @@
 id: welcome
+type: scene
 entry: display-banner
 nodes:
   - id: display-banner

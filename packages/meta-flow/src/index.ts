@@ -1,5 +1,5 @@
 import dfa from './dfa';
-import {FlowBase} from './typings/flow';
+import {FlowBase, FlowType} from './typings/flow';
 
 export default {
   dfa,
@@ -7,4 +7,5 @@ export default {
 
 export type {
   FlowBase,
+  FlowType,
 };

@@ -1,4 +1,5 @@
 id: bondire-place
+type: scene
 entry: select-preperation
 nodes:
   - id: select-preperation

@@ -1,4 +1,5 @@
 id: player-status
+type: scene
 entry: view-status
 nodes:
   - id: view-status

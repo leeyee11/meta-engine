@@ -1,4 +1,5 @@
 id: advanture-forest
+type: scene
 entry: arrive-forest
 nodes:
   - id: arrive-forest

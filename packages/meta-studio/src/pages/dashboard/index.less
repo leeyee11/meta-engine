@@ -1,0 +1,25 @@
+.title {
+  background: rgb(121, 242, 157);
+}
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  .projectListContainer {
+    display: flex;
+    flex: 1 1 calc(100% - 64px);
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+  }
+  .operationContainer {
+    display: flex;
+    flex: 0 0 64px;
+    padding: 16px;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}

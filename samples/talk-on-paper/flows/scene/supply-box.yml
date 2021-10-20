@@ -1,4 +1,5 @@
 id: supply-box
+type: scene
 entry: check-supply
 nodes:
   - id: check-supply

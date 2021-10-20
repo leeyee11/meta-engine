@@ -1,4 +1,5 @@
 id: advanture-mountain
+type: scene
 entry: work-in-progress
 nodes:
   - id: work-in-progress

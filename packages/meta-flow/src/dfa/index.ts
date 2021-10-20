@@ -7,16 +7,26 @@ import path from 'path';
 import _ from 'lodash';
 
 const entry = path.resolve(__dirname,
-    `../../../../${process.env.GAME_ROOT!}/flows/control/main.yml`,
+    `${
+      process.cwd()
+    }/${
+      process.env.GAME_ROOT!
+    }/${
+      process.env.GAME_ID!
+    }/flows/control/main.yml`,
 );
 
 const sceneFlowDir = path.resolve(__dirname,
-    `../../../../${process.env.GAME_ROOT!}/flows/scene`,
+    `${
+      process.cwd()
+    }/${
+      process.env.GAME_ROOT!
+    }/${
+      process.env.GAME_ID!
+    }/flows/scene`,
 );
 
-
 const entryFlow = io.readSync(entry) as FlowBase;
-
 
 const getGraphFromFlow = (flow: FlowBase) => {
   const {nodes: sceneNodes} = flow;

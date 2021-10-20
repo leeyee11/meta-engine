@@ -1,4 +1,5 @@
 id: player-equipments
+type: scene
 entry: check-equipments
 nodes:
   - id: check-equipments

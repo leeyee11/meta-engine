@@ -1,4 +1,5 @@
 id: background-intro
+type: scene
 entry: wake-up
 nodes:
   - id: wake-up

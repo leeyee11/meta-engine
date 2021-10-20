@@ -1,7 +1,12 @@
 import { Context } from '@meta-engine/sandbox';
+export declare enum FlowType {
+    control = "control",
+    scene = "scene"
+}
 export interface FlowBase {
     id: string;
     type: string;
+    name: string;
     entry: string;
     nodes: FlowNode[];
 }

@@ -1,4 +1,5 @@
 id: advanture-select
+type: scene
 entry: select-map
 nodes:
   - id: select-map
@@ -8,6 +9,3 @@ nodes:
         next: exit
   - id: exit
     type: exit
-
-
-      

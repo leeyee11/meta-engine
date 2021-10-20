@@ -1,5 +1,6 @@
 id: talk-on-paper
 type: control
+name: Talk on Paper
 entry: welcome
 nodes:
   - id: welcome
